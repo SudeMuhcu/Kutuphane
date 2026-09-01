@@ -1,0 +1,58 @@
+﻿@model List<Kutuphane.Models.Loan>
+<table class="loan-table">
+    <thead>
+        <tr>
+            <th>Öğrenci No</th>
+            <th>Öğrenci Adı</th>
+            <th>Öğrenci Soyadı</th>
+            <th>Kitap</th>
+            <th>Alış Tarihi</th>
+            <th>İade Tarihi</th>
+            <th>Durum</th>
+            <th>İşlem</th>
+         
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var loan in Model)
+        {
+            <tr>
+                <td>@loan.Student.SchoolNumber</td>
+                <td>@loan.Student.StudentName</td>
+                <td>@loan.Student.StudentSurname</td>
+                <td>@loan.Book.BookName</td>           
+                <td>@loan.BorrowDate</td>
+                <td>@loan.ReturnDate</td>
+
+                <td>
+                    @if (loan.IsReturned)
+                    {
+                        <span class="status returned">İade Edildi</span>
+                    }
+                    else
+                    {
+                        <span class="status borrowed">Ödünçte</span>
+                    }
+                </td>
+
+                <td>
+                    @if (!loan.IsReturned)
+                    {
+                        <form asp-controller="Loan"
+                              asp-action="ReturnBook"
+                              method="post">
+
+                            <input type="hidden" name="loanId" value="@loan.LoanId" />
+
+                            <button type="submit" class="return-btn">
+                                İade Al
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

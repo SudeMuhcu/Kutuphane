@@ -1,0 +1,538 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.loan-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+    .loan-search input {
+        width: 320px;
+        padding: 10px 14px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 15px;
+        outline: none;
+        transition: 0.2s;
+    }
+
+        .loan-search input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+        }
+
+    .loan-search button {
+        padding: 10px 22px;
+        border: none;
+        border-radius: 8px;
+        background-color: #0d6efd;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+        .loan-search button:hover {
+            background-color: #0b5ed7;
+        }
+
+
+/* =========================
+   LOAN TABLOSU
+   ========================= */
+
+.loan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+    .loan-table thead {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+    .loan-table th {
+        padding: 14px 16px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .loan-table td {
+        padding: 14px 16px;
+        border-bottom: 1px solid #eeeeee;
+        color: #333;
+    }
+
+    .loan-table tbody tr {
+        transition: 0.2s;
+    }
+
+        .loan-table tbody tr:hover {
+            background-color: #f8faff;
+        }
+
+        .loan-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+/* =========================
+   DURUM
+   ========================= */
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+    .status.borrowed {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+
+    .status.returned {
+        background-color: #d1e7dd;
+        color: #0f5132;
+    }
+
+
+/* =========================
+   ÝADE BUTONU
+   ========================= */
+
+.return-btn {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 7px;
+    background-color: #dc3545;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .return-btn:hover {
+        background-color: #bb2d3b;
+        transform: translateY(-1px);
+    }
+
+    .return-btn:active {
+        transform: translateY(0);
+    }
+
+
+/* =========================
+   LOAN ARAMA
+   ========================= */
+
+.loan-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+    padding: 18px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+    .loan-search input {
+        width: 360px;
+        padding: 11px 15px;
+        border: 1px solid #dcdcdc;
+        border-radius: 8px;
+        font-size: 15px;
+        outline: none;
+        transition: 0.2s;
+    }
+
+        .loan-search input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+        }
+
+        .loan-search input::placeholder {
+            color: #999;
+        }
+
+    .loan-search button {
+        padding: 11px 24px;
+        border: none;
+        border-radius: 8px;
+        background-color: #0d6efd;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+        .loan-search button:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-1px);
+        }
+
+
+/* =========================
+   ARAMA SONUCU MESAJI
+   ========================= */
+
+.search-message {
+    margin: 20px 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffe69c;
+    font-size: 14px;
+}
+
+/* =========================
+   KÝTAP ÖDÜNÇ VER
+   ========================= */
+
+.borrow-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.borrow-form {
+    max-width: 550px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+    .form-group label {
+        margin-bottom: 7px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #444;
+    }
+
+    .form-group select {
+        padding: 11px 14px;
+        border: 1px solid #dcdcdc;
+        border-radius: 8px;
+        background-color: white;
+        font-size: 15px;
+        outline: none;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+        .form-group select:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+        }
+
+.borrow-btn {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 8px;
+    background-color: #198754;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .borrow-btn:hover {
+        background-color: #157347;
+        transform: translateY(-1px);
+    }
+
+
+/* =========================
+   ÖDÜNÇ MESAJI
+   ========================= */
+
+.borrow-message {
+    max-width: 550px;
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: #cff4fc;
+    color: #055160;
+    border: 1px solid #b6effb;
+    font-size: 14px;
+}
+
+.loan-filters {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    font-size: 14px;
+    color: #444;
+}
+
+    .filter-option input {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+
+/* =========================
+   LOGIN SAYFASI
+   ========================= */
+
+.login-page {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 35px;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.login-header h2 {
+    margin: 0;
+    color: #222;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.login-header p {
+    margin-top: 8px;
+    color: #888;
+    font-size: 14px;
+}
+
+
+/* HATA MESAJI */
+
+.login-error {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    font-size: 14px;
+}
+
+
+/* FORM */
+
+.login-section {
+    margin-bottom: 20px;
+}
+
+.login-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+
+/* INPUT */
+
+.login-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+    .login-input:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+    }
+
+    .login-input::placeholder {
+        color: #aaa;
+    }
+
+
+/* ROL SEÇÝMÝ */
+
+.role-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.role-option {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+    .role-option input {
+        position: absolute;
+        opacity: 0;
+    }
+
+.role-content {
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+    transition: 0.2s;
+}
+
+.role-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.role-description {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #888;
+}
+
+.role-option:hover .role-content {
+    border-color: #0d6efd;
+    background-color: #f8faff;
+}
+
+.role-option input:checked + .role-content {
+    border-color: #0d6efd;
+    background-color: #eef5ff;
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.10);
+}
+
+
+/* GÝRÝÞ BUTONU */
+
+.login-button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 9px;
+    background-color: #0d6efd;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .login-button:hover {
+        background-color: #0b5ed7;
+        transform: translateY(-1px);
+    }
+
+    .login-button:active {
+        transform: translateY(0);
+    }
+
+
+/* MOBÝL */
+
+@media (max-width: 500px) {
+
+    .login-card {
+        padding: 25px 20px;
+    }
+
+    .role-options {
+        grid-template-columns: 1fr;
+    }
+}
+/* Çýkýþ butonu — þeffaf + gradyan (glassmorphism) */
+.btn-logout {
+    background: linear-gradient(135deg, rgba(217,83,79,0.75), rgba(201,48,44,0.85));
+    backdrop-filter: blur(4px);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .btn-logout:hover {
+        background: linear-gradient(135deg, rgba(201,48,44,0.9), rgba(176,36,32,0.95));
+        box-shadow: 0 2px 10px rgba(217,83,79,0.4);
+    }
+
+/* Navbar içindeki son öðeyi (çýkýþ butonu) en saða yasla */
+.navbar-nav .ms-auto-logout {
+    margin-left: auto;
+}
+a:hover {
+    color : black;
+}

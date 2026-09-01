@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+
+<nav class="student-menu">
+
+    <h2>📚 Kütüphane</h2>
+
+    <a asp-controller="Student" asp-action="Index">
+        Ana Sayfa
+    </a>
+
+    <a asp-controller="Student" asp-action="MyBooks">
+        Kitaplarım
+    </a>
+
+    <form asp-controller="Login" asp-action="Logout" method="post" >
+        <button type="submit" class="btn-logout">Çıkış Yap</button>
+    </form>
+
+</nav>
+
+<main>
+    @RenderBody()
+</main>

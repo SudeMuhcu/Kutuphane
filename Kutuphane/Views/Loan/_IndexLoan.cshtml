@@ -1,0 +1,45 @@
+﻿<h2 class="borrow-title">Kitap Ödünç Ver</h2>
+
+@if (TempData["BorrowMessage"] != null)
+{
+    <div class="borrow-message">
+        @TempData["BorrowMessage"]
+    </div>
+}
+
+<form asp-controller="Loan"
+      asp-action="BorrowBokk"
+      method="post"
+      class="borrow-form">
+
+    <div class="form-group">
+        <label>Öğrenci</label>
+
+        <select name="studentId">
+            @foreach (var student in ViewBag.Students)
+            {
+                <option value="@student.StudentId">
+                    @student.StudentName @student.StudentSurname
+                </option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Kitap</label>
+
+        <select name="bookId">
+            @foreach (var book in ViewBag.Books)
+            {
+                <option value="@book.BookId">
+                    @book.BookName
+                </option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="borrow-btn">
+        Ödünç Ver
+    </button>
+
+</form>

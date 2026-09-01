@@ -1,0 +1,105 @@
+﻿@using Kutuphane.Models
+
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+<div class="login-page">
+
+    <div class="login-card">
+
+        <div class="login-header">
+            <div class="login-icon">📚</div>
+            <h2>Kütüphane</h2>
+            <p>Hesabınıza giriş yapın</p>
+        </div>
+        @if (ViewBag.SessionMessage != null)
+        {
+            <div class="login-error">
+                ⏱️ @ViewBag.SessionMessage
+            </div>
+        }
+
+        @if (TempData["LoginError"] != null)
+        {
+            <div class="login-error">
+                @TempData["LoginError"]
+            </div>
+        }
+
+        <form asp-controller="Login" asp-action="Login" method="post">
+
+            <div class="login-section">
+
+                <label class="login-label">Giriş Türü</label>
+
+                <div class="role-options">
+
+                    <label class="role-option">
+                        <input type="radio"
+                               id="student"
+                               name="role"
+                               value="@UserRole.User"
+                               checked />
+
+                        <span class="role-content">
+                            <span class="role-title">🎓 Öğrenci</span>
+                            <span class="role-description">Öğrenci hesabı</span>
+                        </span>
+                    </label>
+
+                    <label class="role-option">
+                        <input type="radio"
+                               id="admin"
+                               name="role"
+                               value="@UserRole.Admin" />
+
+                        <span class="role-content">
+                            <span class="role-title">🛡️ Yönetici</span>
+                            <span class="role-description">Yönetici hesabı</span>
+                        </span>
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div class="login-section">
+
+                <label class="login-label" for="loginValue">
+                    Kullanıcı No / Kullanıcı Adı
+                </label>
+
+                <input type="text"
+                       id="loginValue"
+                       name="loginValue"
+                       class="login-input"
+                       placeholder="Öğrenci numarası veya kullanıcı adı"
+                       required />
+
+            </div>
+
+            <div class="login-section">
+
+                <label class="login-label" for="password">
+                    Şifre
+                </label>
+
+                <input type="password"
+                       id="password"
+                       name="password"
+                       class="login-input"
+                       placeholder="Şifrenizi girin"
+                       required />
+
+            </div>
+
+            <button type="submit" class="login-button">
+                Giriş Yap
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

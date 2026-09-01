@@ -1,0 +1,40 @@
+﻿@model List<Kutuphane.Models.Book>
+@{
+    ViewData["Title"] = "Kitaplar";
+}
+
+<h2>Kitaplar</h2>
+
+@if (TempData["BorrowMessage"] != null)
+{
+    <div class="borrow-message">@TempData["BorrowMessage"]</div>
+}
+
+<table class="loan-table">
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Açıklama</th>
+            <th>Stok</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.BookName</td>
+                <td>@book.BookDescription</td>
+                <td>@book.BookStock</td>
+                <td>
+                    <form asp-controller="Student" asp-action="Borrow" method="post" style="display:inline">
+                        <input type="hidden" name="bookId" value="@book.BookId" />
+                        <button type="submit" class="borrow-btn" style="width:auto;" @(book.BookStock <= 0 ? "disabled" : "")>
+                            Ödünç Al
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+﻿@model Kutuphane.Models.Student
+@{
+    ViewData["Title"] = "Panelim";
+}
+
+<h2>Merhaba, @Model.StudentName @Model.StudentSurname 👋</h2>
+<p>Okul No: <strong>@Model.SchoolNumber</strong></p>
+
+<div class="borrow-message">
+    Şu an iade etmediğiniz kitap sayısı: <strong>@ViewBag.ActiveLoanCount</strong>
+</div>
+
+<div style="margin-top:20px; display:flex; gap:15px;">
+    <a asp-controller="Student" asp-action="Books" class="login-button" style="width:auto; text-decoration:none; display:inline-block;">📚 Kitaplara Göz At</a>
+    <a  asp-controller="Student" asp-action="MyLoans" class="login-button" style=" width:auto; text-decoration:none; display:inline-block; background-color:#198754;">📖 Aldıklarım</a>
+</div>

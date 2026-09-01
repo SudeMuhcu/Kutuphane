@@ -1,0 +1,57 @@
+﻿@model List<Kutuphane.Models.Loan>
+@{
+    ViewData["Title"] = "Aldıklarım";
+}
+
+<h2>Aldığım Kitaplar</h2>
+
+@if (TempData["BorrowMessage"] != null)
+{
+    <div class="borrow-message">@TempData["BorrowMessage"]</div>
+}
+
+<table class="loan-table">
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Alınma Tarihi</th>
+            <th>İade Tarihi</th>
+            <th>Durum</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var loan in Model)
+        {
+            <tr>
+                <td>@loan.Book.BookName</td>
+                <td>@loan.BorrowDate.ToShortDateString()</td>
+                <td>@(loan.ReturnDate == null ? "-" : loan.ReturnDate.Value.ToShortDateString())</td>
+                <td>
+                    @if (loan.IsReturned)
+                    {
+                        <span class="status returned">İade Edildi</span>
+                    }
+                    else
+                    {
+                        <span class="status borrowed">İade Edilmedi</span>
+                    }
+                </td>
+                <td>
+                    @if (loan.IsReturned)
+                    {
+                        <form asp-controller="Student" asp-action="Borrow" method="post" style="display:inline">
+                            <input type="hidden" name="bookId" value="@loan.BookId" />
+                            <button type="submit" class="borrow-btn" style="width:auto;">Tekrar Al</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <p>Henüz hiç kitap ödünç almadınız.</p>
+}

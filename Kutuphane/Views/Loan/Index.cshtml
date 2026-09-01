@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<Kutuphane.Models.Loan>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <partial name="_IndexLoan" model="Model" />
+       
+    </div>
+
+    <div class="col-md-6">
+        <partial name="_IndexSearch" model="Model" />
+    </div>
+</div>
+
+
+
+<br />
+<br />
+
+<partial name="_IndexList" model="Model" />

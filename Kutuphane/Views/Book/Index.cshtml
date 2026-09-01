@@ -1,0 +1,58 @@
+﻿@model List<Kutuphane.Models.Book>
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Kitaplar";
+}
+
+<h1>📚 Kitaplar</h1>
+
+<a asp-controller="Book"
+   asp-action="AddBook"
+   class="add-button">
+    + Kitap Ekle
+</a>
+
+<table class="student-table">
+
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Açıklama</th>
+            <th>Stok</th>
+            <th>Ekle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.BookName</td>
+
+                <td>@book.BookDescription</td>
+
+                <td>@book.BookStock</td>
+
+                <td>
+                    <a asp-action="EditBook"
+                       asp-route-id="@book.BookId">
+                        Düzenle
+                    </a>
+
+                  
+                </td>
+                <td>
+                    <a asp-action="DeleteBook"
+                       asp-route-id="@book.BookId">
+                        Sil
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

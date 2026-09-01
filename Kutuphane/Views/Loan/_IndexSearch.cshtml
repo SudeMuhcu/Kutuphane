@@ -1,0 +1,42 @@
+﻿@model List<Kutuphane.Models.Loan>
+
+@if (ViewBag.SearchMessage != null)
+{
+    <div class="search-message">
+        @ViewBag.SearchMessage
+    </div>
+}
+
+<form method="get" class="loan-search">
+
+    <div class="search-box">
+        <input type="text"
+               name="search"
+               placeholder="Öğrenci adı, soyadı veya okul numarası ara..." />
+
+        <button type="submit">
+            Ara
+        </button>
+    </div>
+
+    <div class="loan-filters">
+
+        <label class="filter-option">
+            <input type="checkbox"
+                   name="returned"
+                   value="true" />
+
+            <span>İade Edilenler</span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox"
+                   name="returned"
+                   value="false" />
+
+            <span>İade Edilmeyenler</span>
+        </label>
+
+    </div>
+
+</form>

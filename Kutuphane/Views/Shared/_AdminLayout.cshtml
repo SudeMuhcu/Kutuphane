@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+
+<div class="admin-container">
+
+    <aside class="sidebar">
+
+        <h2>📚 Kütüphane</h2>
+
+        <a asp-controller="Admin" asp-action="Index">
+            🏠 Dashboard
+        </a>
+        <a asp-controller="AdminUser" asp-action="AddAdmin">
+            👤 Yöneticiler
+        </a>
+
+        <a asp-controller="AdminStudent" asp-action="Index">
+            👨‍🎓 Öğrenciler
+        </a>
+
+        <a asp-controller="Book" asp-action="Index">
+            📚 Kitaplar
+        </a>
+
+        <a asp-controller="Loan" asp-action="Index">
+            📖 Ödünçler
+        </a>
+
+        <form asp-controller="Login" asp-action="Logout" method="post" style="display:inline">
+            <button type="submit" class="btn-logout">🚪 Çıkış Yap</button>
+        </form>
+
+    </aside>
+
+    <main class="content">
+        @RenderBody()
+    </main>
+
+</div>

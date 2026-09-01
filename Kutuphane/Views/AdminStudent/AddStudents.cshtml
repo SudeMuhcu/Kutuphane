@@ -1,0 +1,34 @@
+﻿@model Kutuphane.Models.Student
+
+@{
+    Layout = "_AdminLayout";
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="login-error">
+        ⚠️ @TempData["ErrorMessage"]
+    </div>
+}
+
+<h1>Öğrenci Ekle</h1>
+
+<form asp-action="AddStudents" method="post">
+
+    <label>Ad</label>
+    <input asp-for="StudentName" />
+
+    <label>Soyad</label>
+    <input asp-for="StudentSurname" />
+
+    <label>Okul Numarası</label>
+    <input asp-for="SchoolNumber" />
+
+    <label>Kullanıcı Adı</label>
+    <input name="UserName" />
+
+    <label>Şifre</label>
+    <input name="Password" type="password" />
+
+    <button type="submit">Öğrenci Ekle</button>
+
+</form>
